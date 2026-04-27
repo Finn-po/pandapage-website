@@ -651,13 +651,31 @@
     .blog-post ul { padding-left: 20px; margin-bottom: 16px; }
     .blog-post li { font-size: 0.9rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 6px; }
 
-    /* ── SCROLL ANIMATIONS ── */
-    .fade-up {
-      opacity: 0; transform: translateY(32px);
-      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    /* ── DOWNLOADS ── */
+    #downloads { background: var(--white); }
+    .downloads-header { max-width: 600px; margin-bottom: 60px; }
+    .downloads-grid { display: flex; flex-direction: column; gap: 16px; max-width: 800px; }
+    .download-item {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 24px; background: var(--white);
+      border: 1px solid var(--gray-100); border-radius: var(--radius);
+      transition: background 0.2s, border-color 0.2s;
     }
-    .fade-up.visible { opacity: 1; transform: translateY(0); }
+    .download-item:hover { background: var(--gray-50); border-color: var(--gray-200); }
+    .download-left { display: flex; align-items: center; gap: 16px; }
+    .download-icon { font-size: 2rem; }
+    .download-info h4 {
+      font-size: 1rem; font-weight: 600; color: var(--gray-900);
+      margin-bottom: 4px;
+    }
+    .download-info p { font-size: 0.875rem; color: var(--gray-500); }
+    .download-btn {
+      background: var(--accent); color: #fff;
+      padding: 0.6rem 1.2rem; border-radius: 100px;
+      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .download-btn:hover { background: #245c42; transform: scale(1.02); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -1023,6 +1041,41 @@
       </a>
     </div>
 
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="downloads">
+  <div class="downloads-header fade-up">
+    <div class="label">Downloads</div>
+    <h2>Ressourcen & Materialien</h2>
+    <p class="subtitle">Laden Sie nützliche Dokumente und Ressourcen herunter, um mehr über unsere Dienstleistungen zu erfahren.</p>
+  </div>
+  <div class="downloads-grid fade-up">
+    <div class="download-item">
+      <div class="download-left">
+        <div class="download-icon">📊</div>
+        <div class="download-info">
+          <h4>Leistungsübersicht</h4>
+          <p>Detaillierte Übersicht unserer Webdesign-Services · PDF</p>
+        </div>
+      </div>
+      <a href="downloads/leistungsuebersicht.pdf" class="download-btn" download>
+        Download
+      </a>
+    </div>
+    <div class="download-item">
+      <div class="download-left">
+        <div class="download-icon">📋</div>
+        <div class="download-info">
+          <h4>Preisliste</h4>
+          <p>Aktuelle Preise und Pakete im Überblick · PDF</p>
+        </div>
+      </div>
+      <a href="downloads/preisliste.pdf" class="download-btn" download>
+        Download
+      </a>
+    </div>
   </div>
 </section>
 
