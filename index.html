@@ -651,31 +651,55 @@
     .blog-post ul { padding-left: 20px; margin-bottom: 16px; }
     .blog-post li { font-size: 0.9rem; color: var(--gray-700); line-height: 1.8; margin-bottom: 6px; }
 
+
     /* ── DOWNLOADS ── */
-    #downloads { background: var(--white); }
-    .downloads-header { max-width: 600px; margin-bottom: 60px; }
-    .downloads-grid { display: flex; flex-direction: column; gap: 16px; max-width: 800px; }
+    #downloads { background: var(--gray-50); }
+    .downloads-header { max-width: 600px; margin-bottom: 48px; }
+    .downloads-grid {
+      display: flex; flex-direction: column; gap: 2px;
+      border-radius: var(--radius); overflow: hidden;
+      border: 1px solid var(--gray-100); background: var(--gray-100);
+      max-width: 780px;
+    }
     .download-item {
       display: flex; align-items: center; justify-content: space-between;
-      padding: 24px; background: var(--white);
-      border: 1px solid var(--gray-100); border-radius: var(--radius);
-      transition: background 0.2s, border-color 0.2s;
+      gap: 20px; padding: 20px 24px;
+      background: var(--white);
+      transition: background var(--transition);
     }
-    .download-item:hover { background: var(--gray-50); border-color: var(--gray-200); }
+    .download-item:hover { background: var(--gray-50); }
     .download-left { display: flex; align-items: center; gap: 16px; }
-    .download-icon { font-size: 2rem; }
-    .download-info h4 {
-      font-size: 1rem; font-weight: 600; color: var(--gray-900);
-      margin-bottom: 4px;
+    .download-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      background: var(--accent-light);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
     }
-    .download-info p { font-size: 0.875rem; color: var(--gray-500); }
+    .download-info h4 {
+      font-size: 0.925rem; font-weight: 600;
+      color: var(--gray-900); margin-bottom: 3px;
+    }
+    .download-info p {
+      font-size: 0.78rem; color: var(--gray-500);
+    }
     .download-btn {
-      background: var(--accent); color: #fff;
-      padding: 0.6rem 1.2rem; border-radius: 100px;
-      text-decoration: none; font-size: 0.875rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 6px;
+      background: var(--gray-900); color: #fff;
+      padding: 0.5rem 1.1rem; border-radius: 100px;
+      font-size: 0.8rem; font-weight: 500;
+      text-decoration: none; flex-shrink: 0;
       transition: background 0.2s, transform 0.15s;
     }
-    .download-btn:hover { background: #245c42; transform: scale(1.02); }
+    .download-btn:hover { background: var(--gray-700); transform: scale(1.02); }
+    .download-btn svg { width: 13px; height: 13px; fill: #fff; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0; transform: translateY(32px);
+      transition: opacity 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                  transform 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -721,7 +745,7 @@
     <li><a href="#prozess">Ablauf</a></li>
     <li><a href="#preise">Preise</a></li>
     <li><a href="#ueber">Über mich</a></li>
-    <li><a href="#blog">Blog</a></li><li><a href="#faq">FAQ</a></li>
+    <li><a href="#downloads">Downloads</a></li><li><a href="#blog">Blog</a></li><li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="#kontakt" class="nav-cta">Anfrage stellen</a>
 </nav>
@@ -999,6 +1023,57 @@
   </div>
 </section>
 
+<!-- DOWNLOADS -->
+<section id="downloads">
+  <div class="downloads-header fade-up">
+    <p class="label">Downloads</p>
+    <h2>Unterlagen & Infomaterial</h2>
+    <p class="subtitle">Alles Wichtige zum Mitnehmen — kostenlos und direkt verfügbar.</p>
+  </div>
+
+  <div class="downloads-grid fade-up" id="download-list">
+    <!-- 
+      DOWNLOAD HINZUFÜGEN: Einfach einen neuen <div class="download-item"> Block kopieren,
+      einfügen und href, Titel, Beschreibung und Emoji anpassen.
+      Die Datei selbst lädst du in dein GitHub Repository hoch und verlinkst sie direkt.
+    -->
+
+    <div class="download-item">
+      <div class="download-left">
+        <div class="download-icon">📄</div>
+        <div class="download-info">
+          <h4>Leistungsübersicht Panda Pages</h4>
+          <p>Alle Pakete, Leistungen und Preise auf einen Blick · PDF · 1 Seite</p>
+        </div>
+      </div>
+      <a href="leistungen.pdf" class="download-btn" download>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+        Download
+      </a>
+    </div>
+
+    <div class="download-item">
+      <div class="download-left">
+        <div class="download-icon">💡</div>
+        <div class="download-info">
+          <h4>5 Gründe warum deine Website Kunden kostet</h4>
+          <p>Kostenloser Ratgeber für lokale Unternehmen · PDF · 3 Seiten</p>
+        </div>
+      </div>
+      <a href="ratgeber.pdf" class="download-btn" download>
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z"/></svg>
+        Download
+      </a>
+    </div>
+
+  </div>
+
+  <p class="fade-up" style="margin-top:20px; font-size:0.8rem; color:var(--gray-300);">
+    Weitere Unterlagen auf Anfrage — einfach per WhatsApp oder E-Mail melden.
+  </p>
+</section>
+
+
 <!-- BLOG -->
 <section id="blog">
   <div class="blog-header fade-up">
@@ -1041,41 +1116,6 @@
       </a>
     </div>
 
-  </div>
-</section>
-
-<!-- DOWNLOADS -->
-<section id="downloads">
-  <div class="downloads-header fade-up">
-    <div class="label">Downloads</div>
-    <h2>Ressourcen & Materialien</h2>
-    <p class="subtitle">Laden Sie nützliche Dokumente und Ressourcen herunter, um mehr über unsere Dienstleistungen zu erfahren.</p>
-  </div>
-  <div class="downloads-grid fade-up">
-    <div class="download-item">
-      <div class="download-left">
-        <div class="download-icon">📊</div>
-        <div class="download-info">
-          <h4>Leistungsübersicht</h4>
-          <p>Detaillierte Übersicht unserer Webdesign-Services · PDF</p>
-        </div>
-      </div>
-      <a href="downloads/leistungsuebersicht.pdf" class="download-btn" download>
-        Download
-      </a>
-    </div>
-    <div class="download-item">
-      <div class="download-left">
-        <div class="download-icon">📋</div>
-        <div class="download-info">
-          <h4>Preisliste</h4>
-          <p>Aktuelle Preise und Pakete im Überblick · PDF</p>
-        </div>
-      </div>
-      <a href="downloads/preisliste.pdf" class="download-btn" download>
-        Download
-      </a>
-    </div>
   </div>
 </section>
 
